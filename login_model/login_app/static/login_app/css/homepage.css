@@ -1,0 +1,18 @@
+body{
+    background-color:gray
+}
+#heading{
+    text-align: center;
+    margin-top:50px
+}
+#login-link { 
+    display: block; 
+    width: max-content;
+    margin: 20px auto 0; 
+    padding: 10px 20px; 
+    background-color: #dc3545; 
+    color: #ffffff; 
+    font-size: 16px; 
+    text-decoration: none; 
+    border-radius: 4px; 
+}

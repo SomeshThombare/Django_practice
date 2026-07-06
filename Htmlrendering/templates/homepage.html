@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {{title}}</title>
+</head>
+<body>
+    <h1>Welcome to home page</h1>
+
+    {% for n in course %}
+    <div class="mian">{{forloop.counter}} {{n}}</div>
+    {% endfor %}
+
+    <table border="2" , cellpadding="10">
+        <tr>
+            <th>Name</th>
+            <th>Phone NO:</th>
+        </tr>
+    {% for d in stud_details %}
+        <tr>
+            <td>{{d.name}}</td>
+            <td>{{d.ph_no}}</td>
+        </tr>
+    {%  endfor %}
+    </table>
+<br><br>
+
+    {% if numbers|length > 0 %}
+        {% for num in numbers %}
+            {% if num > 20 %}
+                <div>{{num}}</div>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        NO data found
+    {% endif %}
+</body>
+</html>
