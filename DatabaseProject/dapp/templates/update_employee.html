@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Employee</title>
+</head>
+<body>
+
+    <h1>Update Employee Data</h1>
+
+    <form method="POST" >
+        {% csrf_token %}
+        
+        <p>Name:<input type="text" id="emp_name" name="emp_name" value="{{ obj.name }}" required></p>
+
+        <p>Age: <input type="number" id="emp_age" name="emp_age" value="{{ obj.age }}" required></p>
+
+        <p>Salary:<input type="number" id="emp_salary" name="emp_salary" value="{{ obj.salary }}" required></p>
+         
+       
+
+        <button type="submit">Update Employee</button>
+        <a href="/list/">Cancel</a>
+    </form>
+
+</body>
+</html>
