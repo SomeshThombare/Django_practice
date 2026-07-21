@@ -20,6 +20,7 @@ from dapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',views.home),
     path('add/',views.add_employees, name='add_employees'),
     path('list/',views.list_employees,name='list_employees'),
     path('update/<int:id>/',views.update_employee, name='update_employee'),

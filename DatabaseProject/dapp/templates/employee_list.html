@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+<title>{% block title %}Employee List{% endblock %}</title>
+{% block body %}
+
     <h1> Employee List</h1>
     {% for emp in data %}
        <p>  Name:  {{ emp.name }}</p>
@@ -13,12 +10,13 @@
     <p>Salary:  {{ emp.salary }}</p>
     
     <!-- <a href="/update/{{emp.id}}/">Update</a> -->
-    <a href="{% url 'update_employee' emp.id %}">Update</a>
+    <a href="{% url 'update_employee' emp.id %}"> <button type="button" class="btn btn-primary">Update</button></a>
+   
     
-    <a href="/delete/{{ emp.id }}/">Delete</a>
+    <a href="/delete/{{ emp.id }}/"><button type="button" class="btn btn-danger">Delete</button></a>
+    
     {% endfor %}
 
-    <h4>Add Employees Data <a href="/add/">Click Here</a></h4>
+
     
-</body>
-</html>
+{% endblock %}
