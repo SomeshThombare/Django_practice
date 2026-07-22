@@ -1,0 +1,42 @@
+{% extends 'base.html' %} 
+
+{% block title %}Add Products{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h2>Add New Products</h2>
+    <form method="POST">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="p_name">Product Name</label>
+            <input type="text" class="form-control" name="p_name" id="p_name" required />
+        </div>
+
+        <div class="form-group">
+            <label for="p_brand">Brand</label>
+            <input type="text" class="form-control" id="p_brand" name="p_brand" required />
+        </div>
+
+        <div class="form-group">
+            <label for="p_price">Price</label>
+            <input type="number" step="0.01" class="form-control" name="p_price" id="p_price" required />
+        </div>
+
+        <div class="form-group">
+            <label for="p_quantity">Product Quantity</label>
+            <input type="number" class="form-control" name="p_quantity" id="p_quantity" required />
+        </div>
+
+        <div class="form-group">
+            <label for="p_exp_date">Expiry Date</label>
+            <input type="date" class="form-control" name="p_exp_date" id="p_exp_date"/>
+        </div>
+
+        <div class="mt-3">
+
+          <a href="/list/" ><button type="submit" class="btn btn-primary ">Save Product</button> </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

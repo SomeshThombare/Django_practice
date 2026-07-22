@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Update Product Details{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1>Update Product Data</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+         
+        <div class="form-group mb-3">
+            <label for="p_name">Product Name</label>
+            <input type="text" class="form-control" name="p_name" id="p_name" value="{{ obj.name }}" required />
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="p_brand">Brand</label>
+            <input type="text" class="form-control" id="p_brand" name="p_brand" value="{{ obj.brand }}" required />
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="p_price">Price</label>
+            <input type="number" step="0.01" class="form-control" name="p_price" id="p_price" value="{{ obj.price }}" required />
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="p_quantity">Product Quantity</label>
+            <input type="number" class="form-control" name="p_quantity" id="p_quantity" value="{{ obj.quantity }}" required />
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="p_exp_date">Expiry Date</label>
+          
+            <input type="date" class="form-control" name="p_exp_date" id="p_exp_date" value="{{ obj.exp_date|date:'Y-m-d' }}" />
+        </div>
+
+        <div class="mt-4">
+            <button type="submit" class="btn btn-success">Update Details</button>
+            <a href="/list/" class="btn btn-warning">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
