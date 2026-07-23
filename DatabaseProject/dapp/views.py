@@ -38,3 +38,17 @@ def delete_employee(request, id):
     obj = Employee.objects.get(id = id)
     obj.delete()
     return redirect ('/list/')
+
+def detailed_employee(request,id):
+    obj = Employee.objects.get(id = id)
+    return render(request, 'detailed.html',{'obj':obj})
+
+def search_employee(request):
+    data = None
+
+    if request.method == "POST":
+        search_name = request.POST.get('search-data')
+        data = Employee.objects.filter(name__icontains = search_name)
+        print(data)
+    return render(request, 'employee_list.html', {'data':data})
+    

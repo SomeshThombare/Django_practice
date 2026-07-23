@@ -5,18 +5,8 @@
 
     <h1> Employee List</h1>
     {% for emp in data %}
-       <p>  Name:  {{ emp.name }}</p>
-       <p> Age:  {{ emp.age }}</p>
-    <p>Salary:  {{ emp.salary }}</p>
-    
-    <!-- <a href="/update/{{emp.id}}/">Update</a> -->
-    <a href="{% url 'update_employee' emp.id %}"> <button type="button" class="btn btn-primary">Update</button></a>
-   
-    
-    <a href="/delete/{{ emp.id }}/"><button type="button" class="btn btn-danger">Delete</button></a>
-    
+       <p>Employee Name: <a href="/detail/{{emp.id}}/">{{emp.name}}</a></p>
     {% endfor %}
 
 
-    
 {% endblock %}

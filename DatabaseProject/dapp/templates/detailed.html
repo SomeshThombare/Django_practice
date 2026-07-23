@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block head %} <title>Employee Details</title> {% endblock %}
+
+{% block body %}
+
+    <h1>Employee List </h1>
+    <p>Employee Name: {{ obj.name }}</p>    
+    <p>Employee Age: {{ obj.age }}</p>
+    <p>Employee Salary:{{ obj.salary }}</p>
+   
+    <a href="/update/{{obj.id}}/"> <button type="button" class="btn btn-primary">Update</button></a>
+   
+    <a href="/delete/{{ obj.id }}/"><button type="button" class="btn btn-danger">Delete</button></a> 
+
+{% endblock %}
