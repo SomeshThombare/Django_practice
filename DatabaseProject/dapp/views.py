@@ -2,6 +2,7 @@ from dapp.models import Employee
 from django.http import HttpResponse
 from django.shortcuts import render, redirect,get_object_or_404
 from .models import Employee
+# from PIL import pillow
 
 def home(request):
     return render(request, "index.html")
@@ -12,7 +13,8 @@ def add_employees(request):
         emp_name = request.POST.get('emp_name')
         emp_age = request.POST.get('emp_age')
         emp_salary = request.POST.get('emp_salary')
-        obj = Employee(name = emp_name, age= emp_age, salary = emp_salary)
+        emp_image = request.FILES.get('emp_image')
+        obj = Employee(name = emp_name, age= emp_age, salary = emp_salary, image = emp_image)
         obj.save()
         return redirect  ('/list/')
     return render(request, 'add_employee.html')

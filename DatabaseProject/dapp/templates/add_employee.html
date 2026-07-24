@@ -1,42 +1,37 @@
-{% extends 'base.html' %} {% block body %}
+{% extends 'base.html' %} 
 
-<title>{% block title %}Add Employee{% endblock %}</title>
+{% block title %}Add Employee{% endblock %}
 
+{% block body %}
 <h2>Add New Employee</h2>
 
-<!-- The method must be POST to match request.method == "POST" -->
-<form method="POST">
-  <!-- Django requires the CSRF token for POST forms -->
-  {% csrf_token %}
-
-  <form method="POST">
+<!-- FIX 1: Use only ONE clean form tag with the required enctype -->
+<form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
+
     <div class="form-group">
-      <label for="emp_name">Employee Name</label>
-      <input
-        type="text"
-        class="form-control"
-        name="emp_name"
-        id="emp_name"
-      />
+        <label for="emp_name">Employee Name</label>
+        <input type="text" class="form-control" name="emp_name" id="emp_name" required />
     </div>
 
     <div class="form-group">
-      <label for="emp_age">Age</label>
-      <input type="number" class="form-control" id="emp_age" name="emp_age"  value="emp_age"/>
+        <label for="emp_age">Age</label>
+        <!-- FIX 2: Removed value="emp_age" because it inserts literal text into a number input -->
+        <input type="number" class="form-control" id="emp_age" name="emp_age" required />
     </div>
 
     <div class="form-group">
-      <label for="emp_salary">Salary</label>
-      <input
-        type="number"
-        class="form-control"
-        name="emp_salary"
-        id="emp_salary"
-        value="emp_salary"
-      />
+        <label for="emp_salary">Salary</label>
+        <!-- FIX 3: Removed value="emp_salary" as well -->
+        <input type="number" class="form-control" name="emp_salary" id="emp_salary" required />
     </div>
-    <button type="submit" class="btn btn-primary">Save Emplooyee</button>
-  </form>
-  {% endblock %}
+
+    <!-- FIX 4: Properly closed and aligned the photo container -->
+    <div class="form-group">
+        <label for="employeeImage">Photo</label>
+        <input type="file" class="form-control" id="employeeImage" name="emp_image" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Employee</button>
 </form>
+{% endblock %}
