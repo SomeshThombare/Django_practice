@@ -1,8 +1,23 @@
 {% extends 'base.html' %}
 
-{% block head %} <title>Employee Details</title> {% endblock %}
+{% block head %} <title>Employee Details</title> 
+
+{% endblock %}
+
 
 {% block body %}
+<style>
+  .profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 3px solid #ffffff;
+  margin-bottom: 20px;
+}
+
+</style>
 
     <h1>Employee List </h1>
     <img src="{{ obj.image.url }}" alt="profile image" class="profile-img">

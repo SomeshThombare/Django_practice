@@ -5,7 +5,6 @@
 {% block body %}
 <h2>Add New Employee</h2>
 
-<!-- FIX 1: Use only ONE clean form tag with the required enctype -->
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
 
@@ -22,14 +21,12 @@
 
     <div class="form-group">
         <label for="emp_salary">Salary</label>
-        <!-- FIX 3: Removed value="emp_salary" as well -->
         <input type="number" class="form-control" name="emp_salary" id="emp_salary" required />
     </div>
 
-    <!-- FIX 4: Properly closed and aligned the photo container -->
     <div class="form-group">
         <label for="employeeImage">Photo</label>
-        <input type="file" class="form-control" id="employeeImage" name="emp_image" required />
+        <input type="file" class="form-control" id="employeeImage" name="emp_image"/>
     </div>
 
     <button type="submit" class="btn btn-primary">Save Employee</button>
