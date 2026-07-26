@@ -15,8 +15,9 @@ def AddProducts(request):
         p_price = int(request.POST.get('p_price'))
         p_quantity = int(request.POST.get('p_quantity'))
         p_exp_date = request.POST.get('p_exp_date') 
+        p_image = request.FILES.get('product_image') 
         
-        obj = Products(name = p_name, brand = p_brand,  price = p_price, quantity = p_quantity, exp_date = p_exp_date)
+        obj = Products(name = p_name, brand = p_brand,  price = p_price, quantity = p_quantity, exp_date = p_exp_date , image = p_image)
 
         obj.save()
         return redirect('/list/')
@@ -35,7 +36,9 @@ def update(request, id):
         obj.price = float(request.POST.get('p_price'))
         obj.quantity = int(request.POST.get('p_quantity'))
         obj.exp_date = request.POST.get('p_exp_date')
-
+        new_image = request.FILES.get('product_image')
+        if new_image:
+            obj.image = new_image
         obj.save()
       
         return redirect('/list/')
@@ -46,3 +49,18 @@ def Delete(request,id):
     obj = Products.objects.get(id=id)
     obj.delete()
     return redirect('/list/')
+
+def Detailed_View(request,id):
+    obj = Products.objects.get(id = id)
+    return render(request, 'detailed.html', {'obj':obj})
+
+def Search(request):
+    data = None
+    if request.method == "POST":
+        search_name = request.POST.get('search-data')
+        data = Products.objects.filter(name__icontains = search_name)
+        print(data)
+    return render(request, 'product_list.html', {'data':data})
+
+
+

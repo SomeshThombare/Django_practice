@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Products import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +27,11 @@ urlpatterns = [
     path('list/',views.ListProducts, name='list'),
     path('update/<int:id>/',views.update, name='update'),
     path('delete/<int:id>/',views.Delete, name='delete'),
-
+    path('detail/<int:id>/',views.Detailed_View, name='detail'),
+    path('search/',views.Search),
 
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

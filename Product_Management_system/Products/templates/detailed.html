@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Product List{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h3>Products Details</h3>
+    
+  
+        <div class="product-item border-bottom pb-3 mb-3">
+            <!-- <img src="obj.image.url" alt="image is missing" class="product-img"  height="140" width="150"> -->
+            <img src="{{ obj.image.url }}"alt="image is missing" class="product-img" height="140" width="150">
+
+            <p>Name : {{ obj.name }}</p> 
+            <p> Brand : {{ obj.brand }}</p>
+            <p> Price : {{ obj.price }}</p>
+            <p> Quantity : {{ obj.quantity }}</p>
+            <p> Expiry date : {{ obj.exp_date }}</p>
+
+             <a href="{% url 'update' obj.id %}"> <button type="button" class="btn btn-primary">Update</button></a>
+   
+    
+            <a href="/delete/{{ obj.id }}/"><button type="button" class="btn btn-danger">Delete</button></a>
+        
+        </div>   
+</div>
+{% endblock %}

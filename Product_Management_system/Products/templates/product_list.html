@@ -8,17 +8,8 @@
     
     {% for p in data %}
         <div class="product-item border-bottom pb-3 mb-3">
-            <p>Name : {{ p.name }}</p> 
-            <p> Brand : {{ p.brand }}</p>
-            <p> Price : {{ p.price }}</p>
-            <p> Quantity : {{ p.quantity }}</p>
-            <p> Expiry date : {{ p.exp_date }}</p>
-
-             <a href="{% url 'update' p.id %}"> <button type="button" class="btn btn-primary">Update</button></a>
-   
-    
-            <a href="/delete/{{ p.id }}/"><button type="button" class="btn btn-danger">Delete</button></a>
-        
+           <p>Name :<a href="/detail/{{ p.id }}/">{{ p.name }}</a></p> 
+           
         </div>
     {% empty %}
         <p>No products found in the database.</p>

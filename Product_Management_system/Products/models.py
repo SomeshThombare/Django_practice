@@ -9,7 +9,7 @@ class Products(models.Model):
     price = models.FloatField()
     quantity = models.IntegerField()
     exp_date = models.DateField(null=True, blank=True)
-
+    image = models.ImageField(upload_to= 'products/', default=None, null=False)
     def __str__(self):
         return f"Products : {self.name}"
 
