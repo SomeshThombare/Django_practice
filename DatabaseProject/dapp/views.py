@@ -55,6 +55,5 @@ def search_employee(request):
         print(data)
     return render(request, 'employee_list.html', {'data':data})
 
-def Nothing():
-    pass
+
     
