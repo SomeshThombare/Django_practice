@@ -2,6 +2,7 @@ from dapp.models import Employee
 from django.http import HttpResponse
 from django.shortcuts import render, redirect,get_object_or_404
 from .models import Employee
+
 # from PIL import pillow
 
 def home(request):
@@ -53,4 +54,7 @@ def search_employee(request):
         data = Employee.objects.filter(name__icontains = search_name)
         print(data)
     return render(request, 'employee_list.html', {'data':data})
+
+def Nothing():
+    pass
     
